@@ -110,7 +110,6 @@ jobs:
             npm audit --aduit-level=critical
             npm audit fix --audit-level=critical --force
             npm audit fix --audit-level=critical --force
-            npm audit --aduit-level=critical
 
   scan-backend:
     docker:
@@ -127,7 +126,6 @@ jobs:
              npm audit --aduit-level=critical
              npm audit fix --audit-level=critical --force
              npm audit fix --audit-level=critical --force
-             npm audit --aduit-level=critical
 
 #   deploy-infrastructure:
 #     docker:
