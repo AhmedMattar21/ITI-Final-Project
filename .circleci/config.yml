@@ -100,14 +100,14 @@ jobs:
       - image: cimg/node:13.8.0
     steps:
       - checkout
-        - restore_cache:
-            keys: [backend-deps]
-        - run:
-            name: Back-end Unit Scan
-            command: |
-              cd backend
-              npm install
-              npm audit --aduit-level=critical
+      - restore_cache:
+          keys: [backend-deps]
+      - run:
+          name: Back-end Unit Scan
+          command: |
+            cd backend
+            npm install
+            npm audit --aduit-level=critical
 
   scan-backend:
     docker:
