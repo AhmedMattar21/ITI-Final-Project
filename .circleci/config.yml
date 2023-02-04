@@ -20,6 +20,7 @@ commands:
             curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
             unzip awscliv2.zip
             sudo ./aws/install
+            
 
   install_ansible:
     description: Install Ansible
@@ -187,7 +188,7 @@ jobs:
       - run:
           name: Add back-end ip to ansible inventory
           command: |
-            BACKEND_PUBLIC_IP=$(aws ec2 describe-instance \
+            BACKEND_PUBLIC_IP=$(aws ec2 describe-instances \
               --filters "Name=tag:Name,Values=backend-${CIRCLE_WORKFLOW_ID:0:7}" \
               --query 'Reservations[*].Instances[*].PublicIpAddress' \
               --output text)
