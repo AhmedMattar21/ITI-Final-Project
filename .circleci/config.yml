@@ -338,7 +338,6 @@ jobs:
       - destroy-environment
       - revert-migrations
         
-
   smoke-test:
     docker:
       - image: cimg/base:stable
