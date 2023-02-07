@@ -281,6 +281,7 @@ jobs:
               --filters "Name=tag:Name,Values=backend-${CIRCLE_WORKFLOW_ID:0:7}" \
               --query 'Reservations[*].Instances[*].PublicIpAddress' \
               --output text)
+
             echo "API_URL=http://${BACKEND_PUBLIC_IP}:3030" >> frontend/.env
             cat frontend/.env
       - run:
@@ -333,6 +334,7 @@ jobs:
             cd .circleci/ansible
             cat inventory.txt
             ansible-playbook -i inventory.txt deploy-backend.yml
+            
       - destroy-environment
       - revert-migrations
         
